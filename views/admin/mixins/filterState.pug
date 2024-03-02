@@ -1,0 +1,6 @@
+mixin filterState(filterState)
+     each item in filterState 
+                    button(
+                        class=`btn btn-sm ml-1 btn-outline-success ${item.Class} `
+                        button-status= item.State
+                        ) #{item.name}

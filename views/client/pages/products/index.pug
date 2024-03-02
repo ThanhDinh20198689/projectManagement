@@ -1,8 +1,23 @@
-doctype html 
-html 
-    head 
-        title trang san pham
+extends ../../layouts/default.pug
+include ../../mixins/box-head.pug
 
-    body 
-        h1 trang danh sach san pham
-        
+block main
+  .container.my-3
+    .row
+      .col-12
+        +box-head("Danh sách sản phẩm")
+
+    .row
+      each items in products
+        .col-4.mb-3
+          .product-item
+            .inner-image
+              a(href=`/products/${items.slugTest}`)
+                img(src=items.thumbnail, alt=items.title)
+            .inner-content
+             
+              h3.inner-title
+                a(href=`/products/${items.slugTest}`) #{items.title}
+              .inner-price-new #{items.priceNew}$
+              .inner-price-old #{items.price}$
+              .inner-discount -#{items.discountPercentage}%
